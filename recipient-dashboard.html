@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recipient Dashboard</title>
+  <script>
+    // This script will handle fetching recipient data after login
+    window.onload = function() {
+      const token = localStorage.getItem("recipientToken");
+      if (!token) {
+        window.location.href = "recipient-login.html"; // Redirect to login if no token
+        return;
+      }
+
+      // Display token or further data in the dashboard as needed
+      document.getElementById("recipient-info").innerHTML = "Welcome, Recipient!";
+    };
+  </script>
+</head>
+<body>
+  <h1>Recipient Dashboard</h1>
+  <div id="recipient-info">
+    <!-- Recipient information will be displayed here -->
+  </div>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("recipientToken");
+      window.location.href = "recipient-login.html"; // Redirect to login page
+    }
+  </script>
+</body>
+</html>
